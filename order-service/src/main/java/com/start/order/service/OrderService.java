@@ -46,6 +46,10 @@ public class OrderService {
                 .setMoney(orderMoney);
         orderDAO.insert(order);
         storageFeignClient.deduct(commodityCode, count);
+        String a = accountFeignClient.decrease(userId, orderMoney);
+        
+        System.out.println(a);
+        
 
     }
 
@@ -62,7 +66,7 @@ public class OrderService {
                 .setMoney(orderMoney);
         orderDAO.insert(order);
 
-        accountFeignClient.reduce(userId, orderMoney);
+        accountFeignClient.decrease(userId, orderMoney);
 
     }
 

@@ -1,0 +1,23 @@
+mybatis:
+    mapperLocations: classpath:mapper/*.xml
+    typeAliasesPackage: com.start.account.entity
+server:
+    port: 8081
+spring:
+    application:
+        name: account-service
+    cloud:
+        alibaba:
+            seata:
+                tx-service-group: account-service-group
+        nacos:
+            discovery:
+                server-addr: 127.0.0.1:8848    
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1/seata_account?prepStmtCacheSize=517&cachePrepStmts=true&autoReconnect=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+        username: root
+        password: abc123        
+logging:
+      level:
+          com.start.account.dao: debug
