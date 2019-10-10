@@ -1,10 +1,10 @@
-# springcloud-nacos-seata
+# springcloud 分布式事务组件 nacos mybits mybitsplus seata swagger2 zuul 
 
-**分布式事务组件seata的使用demo，AT模式，集成nacos、springboot、springcloud、mybatis-plus，数据库采用mysql**
+**分布式事务组件AT模式，数据库采用mysql**
 
 demo中使用的相关版本号，具体请看代码。如果搭建个人demo不成功，验证是否是由版本导致，由于目前这几个项目更新比较频繁，版本稍有变化便会出现许多奇怪问题
 
-* seata 0.8.0
+* seata 0.8.1
 * spring-cloud-alibaba-seata 2.1.0.RELEASE
 * spring-cloud-starter-alibaba-nacos-discovery  0.2.1.RELEASE
 * springboot 2.0.6.RELEASE
