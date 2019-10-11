@@ -1,4 +1,4 @@
-# springcloud 分布式事务组件 nacos mybits mybitsplus seata swagger2 zuul 
+# springcloud 分布式事务组件 nacos mybits mybitsplus redis seata swagger2 zuul 
 
 **分布式事务组件AT模式，数据库采用mysql**
 
