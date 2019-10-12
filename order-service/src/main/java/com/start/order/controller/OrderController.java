@@ -1,10 +1,15 @@
 package com.start.order.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.start.order.feign.StorageFeignClient;
 import com.start.order.service.OrderService;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 import javax.annotation.Resource;
 
@@ -16,6 +21,7 @@ import javax.annotation.Resource;
  *
  */
 @RestController
+@Api(tags="order服务")
 @RequestMapping("order")
 public class OrderController {
 
@@ -30,7 +36,8 @@ public class OrderController {
      *
      * @return
      */
-    @RequestMapping("/placeOrder/commit")
+    @GetMapping("/placeOrder/commit")
+    @ApiOperation(value="成功提交demo示例")
     public Boolean placeOrderCommit() {
 
         orderService.placeOrder("1", "product-1", 1);
@@ -42,7 +49,8 @@ public class OrderController {
      *
      * @return
      */
-    @RequestMapping("/placeOrder/rollback")
+    @GetMapping("/placeOrder/rollback")
+    @ApiOperation(value="失败回滚demo示例")
     public Boolean placeOrderRollback() {
         // product-2 扣库存时模拟了一个业务异常,
         orderService.placeOrder("1", "product-2", 1);
@@ -50,7 +58,8 @@ public class OrderController {
     }
 
 
-    @RequestMapping("/placeOrder")
+    @PostMapping("/placeOrder")
+    @ApiOperation(value="demo示例")
     public Boolean placeOrder(String userId, String commodityCode, Integer count) {
         orderService.placeOrder(userId, commodityCode, count);
         return true;
