@@ -13,6 +13,7 @@
         <module>spc-account-server</module>
         
         <module>base-common</module>
+        <module>spc-zuul-service</module>
     </modules>
     
     <parent>
@@ -56,35 +57,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
 		</dependency>
-		<!--druid-->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid-spring-boot-starter</artifactId>
-			<version>${druid-spring-boot-starter.version}</version>
-		</dependency>
+
 		<!--lombok-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
 		</dependency>
-		<!--seata-->
-		<dependency>
-			<groupId>com.alibaba.cloud</groupId>
-			<artifactId>spring-cloud-alibaba-seata</artifactId>
-			<version>2.1.0.RELEASE</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>seata-all</artifactId>
-					<groupId>io.seata</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>io.seata</groupId>
-			<artifactId>seata-all</artifactId>
-			<version>${seata.version}</version>
-		</dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>

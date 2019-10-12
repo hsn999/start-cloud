@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.start.order.feign.StorageFeignClient;
+import com.start.order.model.Order;
+import com.start.order.repository.OrderDAO;
 import com.start.order.service.OrderService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+import java.math.BigDecimal;
 
 import javax.annotation.Resource;
 
@@ -29,7 +33,6 @@ public class OrderController {
     private OrderService orderService;
     @Resource
     private StorageFeignClient storageFeignClient;
-
 
     /**
      * 下单：插入订单表、扣减库存，模拟回滚
@@ -64,4 +67,5 @@ public class OrderController {
         orderService.placeOrder(userId, commodityCode, count);
         return true;
     }
+      
 }
