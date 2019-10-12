@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.start.storage.service.StorageService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import javax.annotation.Resource;
 
 /**
@@ -15,6 +18,7 @@ import javax.annotation.Resource;
  * <p>
  */
 @RestController
+@Api(tags="storage 服务")
 @RequestMapping("storage")
 public class StorageController {
 
@@ -27,6 +31,7 @@ public class StorageController {
      * @param count 数量
      * @return
      */
+    @ApiOperation(value=" 减库存demo示例")
     @RequestMapping(path = "/deduct")
     public Boolean deduct(String commodityCode, Integer count) {
         storageService.deduct(commodityCode, count);

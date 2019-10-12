@@ -64,6 +64,14 @@
             <artifactId>base-framework-mysql</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        
+       <!-- common -->
+        <dependency>
+            <groupId>com.start</groupId>
+            <artifactId>base-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        
 
 
     </dependencies>
