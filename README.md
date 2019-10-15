@@ -187,6 +187,7 @@ INSERT INTO seat_account.account (`id`, `user_id`, `total`, `used`, `residue`) V
 
 ## 3 其他配置
 ### 3.1 redis組件配置
+redis安装配置可参考项目doc目录文档
 
 增加配置文件 redisconf.properties
 ~~~
@@ -200,6 +201,11 @@ spring.redis.cluster.nodes.commandTimeout=5000
 application.properties增加model.name指定redis类型
 model.name=com.start.framework.redis.redis.util.standalone.JedisUtil（单独一个server）
 model.name=com.start.framework.redis.redis.util.cluster.JedisClusterUtil（集群）
+
+
+使用Redis简单队列
+addToQueue---加入队列
+getFromQueue----从队列取出
 
 ----------
 
