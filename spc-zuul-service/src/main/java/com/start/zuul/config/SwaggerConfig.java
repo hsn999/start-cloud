@@ -11,6 +11,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import com.start.framework.redis.redis.util.ICacheUtil;
+import com.start.framework.redis.util.SpringUtil;
+
 import org.springframework.cloud.netflix.zuul.filters.route.*;
 
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -69,7 +72,6 @@ public class SwaggerConfig implements SwaggerResourcesProvider{
 		resources.add(swaggerResource("zuul-gateway","/v2/api-docs","1.0"));
 		//循环 使用Lambda表达式简化代码
 		routeLocator.getRoutes().forEach(route ->{
-			System.out.println("======");
 			//动态获取
 			resources.add(swaggerResource(route.getId(),route.getFullPath().replace("**", "v2/api-docs"), "1.0"));
 		});
@@ -99,4 +101,7 @@ public class SwaggerConfig implements SwaggerResourcesProvider{
 		swaggerResource.setSwaggerVersion(version);
 		return swaggerResource;
 	}
+	
+
+	
 }

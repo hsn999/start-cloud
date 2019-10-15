@@ -2,6 +2,9 @@
 
 **分布式事务组件AT模式，数据库采用mysql**
 
+
+
+
 demo中使用的相关版本号，具体请看代码。如果搭建个人demo不成功，验证是否是由版本导致，由于目前这几个项目更新比较频繁，版本稍有变化便会出现许多奇怪问题
 
 * seata 0.8.1
@@ -9,6 +12,18 @@ demo中使用的相关版本号，具体请看代码。如果搭建个人demo不
 * spring-cloud-starter-alibaba-nacos-discovery  0.2.1.RELEASE
 * springboot 2.0.6.RELEASE
 * springcloud Finchley.RELEASE
+
+
+具体项目：
+
+* base-common 基础配置及工具，含swagger配置
+* base-framework-mysql mysqlPlus配置
+* spc-account-server ,账务服务整合mybits
+* spc-order-serrver 订单服务，spc-storage-server库存服务，整合mybitsPlus
+* spc-zuul-service zuul聚合全部 的api文档
+
+
+
 
 ----------
 
@@ -169,6 +184,22 @@ INSERT INTO seat_account.account (`id`, `user_id`, `total`, `used`, `residue`) V
 
 1. 每个应用的resource里需要配置一个registry.conf ，demo中与seata-server里的配置相同
 2. application.propeties 的各个配置项，注意spring.cloud.alibaba.seata.tx-service-group 是服务组名称，与nacos-config.txt 配置的service.vgroup_mapping.${your-service-gruop}具有对应关系
+
+## 3 其他配置
+### 3.1 redis組件配置
+
+增加配置文件 redisconf.properties
+~~~
+spring.redis.single.host=127.0.0.1
+spring.redis.single.port=6379
+
+spring.redis.cluster.nodes=192.168.1.42:7001,192.168.1.42:7002,192.168.1.42:7003,192.168.1.42:7004,192.168.1.42:7005,192.168.1.42:7006   
+spring.redis.cluster.nodes.commandTimeout=5000
+~~~
+
+application.properties增加model.name指定redis类型
+model.name=com.start.framework.redis.redis.util.standalone.JedisUtil（单独一个server）
+model.name=com.start.framework.redis.redis.util.cluster.JedisClusterUtil（集群）
 
 ----------
 

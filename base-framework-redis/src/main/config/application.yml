@@ -1,0 +1,33 @@
+server:
+    port: 8000
+   
+
+spring:
+    application:
+        name: provider-redis
+    redis:
+        host: 127.0.0.1
+        port: 6379
+        timeout: 20000
+        
+        pool:
+            max-active: 8
+            min-idle: 0
+            max-idle: 8
+            max-wait: -1
+        cluster:
+            nodes: 192.168.37.42:7001,192.168.37.42:7002,192.168.37.42:7003,192.168.37.42:7004,192.168.37.42:7005,192.168.37.42:7006   
+            commandTimeout: 5000
+            
+#集群：jedisClusterUtil ， 单机：jedisUtil
+model:
+      name: jedisUtil
+logging:                             
+  level:
+    root: INFO
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
