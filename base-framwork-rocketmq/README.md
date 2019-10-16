@@ -59,24 +59,23 @@ The mqnamesrv(36664) is running...
 Send shutdown request to mqnamesrv(36664) OK
 
 搭建RocketMQ web控制台
-1、访问 https://github.com/apache/rocketmq-externals/ ， 
+
+1、访问 https://github.com/apache/rocketmq-externals/
+
 使用git将代码clone下来
 
-2、修改项目配置信息 
+2、修改项目配置信息
+ 
 这是一个用springboot编写的工程，进入到 rocketmq-externals\rocketmq-console\src\main\resources 目录下，编辑 application.properties 文件， 修改mq的连接地址信息：
 
 rocketmq.config.namesrvAddr=localhost:9876
-1
+
 3、启动项目
+
 在rocketmq-externals\rocketmq-console目录下，执行：
 
 mvn spring-boot:run
-1
+
 等待启动成功。
 
-[2018-03-05 10:54:19.823]  INFO Initializing ProtocolHandler ["http-nio-8080"]
-[2018-03-05 10:54:19.853]  INFO Starting ProtocolHandler [http-nio-8080]
-[2018-03-05 10:54:19.893]  INFO Using a shared selector for servlet write/read
-[2018-03-05 10:54:19.929]  INFO Tomcat started on port(s): 8080 (http)
-[2018-03-05 10:54:19.940]  INFO Started App in 9.61 seconds (JVM running for 18.979)
 4、浏览器访问：http://localhost:8080
