@@ -14,7 +14,7 @@ public class OrderedProducer {
     public static void main(String[] args) throws Exception {
         //Instantiate with a producer group name.
     	DefaultMQProducer producer = new DefaultMQProducer("example_group_name");
-        producer.setNamesrvAddr("192.168.37.139:8976");
+        producer.setNamesrvAddr("127.0.0.1:9876");
         //Launch the instance.
         producer.start();
         

@@ -28,6 +28,8 @@ public class Server {
             server.sendInOrder(orderId, "TopicTest", "TagA", "ooooooooo"+orderId+"----"+i);
 		}
 		
+		
+		server.producer.shutdown();
 	}
 	
 	
@@ -36,7 +38,7 @@ public class Server {
 		// 生产者的组名
 		DefaultMQProducer producer = new DefaultMQProducer("TopicTestGroup");
 		// 指定NameServer地址，多个地址以 ; 隔开
-		producer.setNamesrvAddr("192.168.37.139:8976");
+		producer.setNamesrvAddr("127.0.0.1:9876");
 		producer.setVipChannelEnabled(false);
 		try {
 			producer.start();
@@ -98,7 +100,7 @@ public class Server {
 				int index = id % mqs.size();
 				return mqs.get(index);
 			}
-		}, orderId);
+		}, 1);//这个1是指定队列的下标
 		
 		return "{\"MsgId\":\"" + sendResult.getMsgId() + "\"}";
 	}

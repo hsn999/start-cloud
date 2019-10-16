@@ -16,7 +16,7 @@ public class OrderedConsumer {
 
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
         
-        consumer.setNamesrvAddr("192.168.37.139");
+        consumer.setNamesrvAddr("127.0.0.1:9876");
 
         consumer.subscribe("TopicTest", "TagA || TagC || TagD");
 

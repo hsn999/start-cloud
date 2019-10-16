@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<scope>test </scope>
 		</dependency>
 		<!-- nacos -->
 		<dependency>
@@ -42,7 +42,7 @@
 			<version>0.2.1.RELEASE</version>
 		</dependency>
 		
-		<!--seata-->
+		<!--seata--> 
 		<dependency>
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-alibaba-seata</artifactId>

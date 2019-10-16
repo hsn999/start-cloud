@@ -103,7 +103,7 @@ public class SyncProducer {
 				int index = id % mqs.size();
 				return mqs.get(index);
 			}
-		}, orderId);
+		}, 1); //1为指定队列的下标，这样会选择固定的队列
 		
 		return "{\"MsgId\":\"" + sendResult.getMsgId() + "\"}";
 	}
