@@ -15,6 +15,7 @@
         <module>base-common</module>
         <module>spc-zuul-service</module>
         <module>base-framework-redis</module>
+        <module>base-framwork-rocketmq</module>
     </modules>
     
     <parent>
