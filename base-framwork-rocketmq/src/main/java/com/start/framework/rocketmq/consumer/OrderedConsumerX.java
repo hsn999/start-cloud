@@ -17,7 +17,7 @@ public class OrderedConsumerX {
 
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("please_rename_unique_group_name");
 
-        consumer.setNamesrvAddr("127.0.0.1:9876");
+        consumer.setNamesrvAddr("192.168.37.139:9876");
 
         consumer.subscribe("TopicTest", "TagA");
 

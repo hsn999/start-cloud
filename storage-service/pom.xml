@@ -72,7 +72,12 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         
-
+       <!-- rocketMq -->
+        <dependency>
+            <groupId>com.start</groupId>
+            <artifactId>base-framwork-rocketmq</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

@@ -21,8 +21,14 @@ public class Consumer implements CommandLineRunner {
     /**
      * 消费者
      */
-    @Value("${apache.rocketmq.consumer.pushConsumer}")
+    @Value("${apache.rocketmq.consumerGroup}")
     private String pushConsumer;
+    
+    @Value("${apache.rocketmq.topic}")
+    private String topic;
+    
+    @Value("${apache.rocketmq.tag}")
+    private String tag;
 
     /**
      * NameServer 地址
@@ -36,13 +42,13 @@ public class Consumer implements CommandLineRunner {
      */
     public void messageListener(){
 
-        DefaultMQPushConsumer consumer=new DefaultMQPushConsumer("SpringBootRocketMqGroup");
+        DefaultMQPushConsumer consumer=new DefaultMQPushConsumer(pushConsumer);
 
         consumer.setNamesrvAddr(namesrvAddr);
         try {
 
             // 订阅PushTopic下Tag为push的消息,都订阅消息
-            consumer.subscribe("PushTopic", "push");
+            consumer.subscribe(topic, tag);
 
             // 程序第一次启动从消息队列头获取数据
             consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);

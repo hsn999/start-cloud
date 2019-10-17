@@ -2,11 +2,19 @@ package com.start.storage.service;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.start.framework.rocketmq.producer.SyncProducer;
+import com.start.storage.config.RocketMQProperties;
 import com.start.storage.entity.Storage;
 import com.start.storage.repository.StorageDAO;
 
+import org.apache.rocketmq.client.exception.MQBrokerException;
+import org.apache.rocketmq.client.exception.MQClientException;
+import org.apache.rocketmq.remoting.exception.RemotingException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.io.UnsupportedEncodingException;
 
 import javax.annotation.Resource;
 
@@ -22,6 +30,12 @@ public class StorageService {
 
     @Resource
     private StorageDAO storageDAO;
+    
+    @Autowired
+    SyncProducer syncProducer;
+    
+    @Autowired
+    RocketMQProperties rocketMQProperties;
 
     /**
      * 减库存
@@ -41,5 +55,15 @@ public class StorageService {
         storage.setCount(storage.getCount() - count);
 
         storageDAO.updateById(storage);
+        
+        //异步通知第三方系统
+        try {
+			syncProducer.send(rocketMQProperties.topic, rocketMQProperties.tag, storage.toString());
+		} catch (UnsupportedEncodingException | InterruptedException | RemotingException | MQClientException
+				| MQBrokerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
     }
 }

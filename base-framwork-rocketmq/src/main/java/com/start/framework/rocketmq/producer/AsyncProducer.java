@@ -26,7 +26,7 @@ public class AsyncProducer {
     /**
      * 生产者的组名
      */
-    @Value("${apache.rocketmq.producer.asyncProducerGroup}")
+    @Value("${apache.rocketmq.asyncProducerGroup}")
     private String producerGroup;
 
     private DefaultMQProducer producer;

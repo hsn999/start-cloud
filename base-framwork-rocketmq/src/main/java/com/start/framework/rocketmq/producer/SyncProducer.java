@@ -28,7 +28,7 @@ public class SyncProducer {
 	/**
 	 * 生产者的组名
 	 */
-	@Value("${apache.rocketmq.producer.producerGroup}")
+	@Value("${apache.rocketmq.producerGroup}")
 	private String producerGroup;
 
 	private DefaultMQProducer producer;
@@ -44,6 +44,7 @@ public class SyncProducer {
 		// 生产者的组名
 		producer = new DefaultMQProducer(producerGroup);
 		// 指定NameServer地址，多个地址以 ; 隔开
+		System.out.println("namesrvAddr-------:"+namesrvAddr);
 		producer.setNamesrvAddr(namesrvAddr);
 		producer.setVipChannelEnabled(false);
 		try {

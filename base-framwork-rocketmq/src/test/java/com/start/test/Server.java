@@ -38,7 +38,7 @@ public class Server {
 		// 生产者的组名
 		DefaultMQProducer producer = new DefaultMQProducer("TopicTestGroup");
 		// 指定NameServer地址，多个地址以 ; 隔开
-		producer.setNamesrvAddr("127.0.0.1:9876");
+		producer.setNamesrvAddr("192.168.37.139:9876");
 		producer.setVipChannelEnabled(false);
 		try {
 			producer.start();
