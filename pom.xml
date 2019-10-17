@@ -16,6 +16,7 @@
         <module>spc-zuul-service</module>
         <module>base-framework-redis</module>
         <module>base-framwork-rocketmq</module>
+        <module>base-framwork-kafak</module>
     </modules>
     
     <parent>

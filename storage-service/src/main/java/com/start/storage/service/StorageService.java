@@ -3,6 +3,7 @@ package com.start.storage.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.start.framework.rocketmq.producer.SyncProducer;
+import com.start.framwork.kafak.producer.MyKafkaProducer;
 import com.start.storage.config.RocketMQProperties;
 import com.start.storage.entity.Storage;
 import com.start.storage.repository.StorageDAO;
@@ -36,6 +37,9 @@ public class StorageService {
     
     @Autowired
     RocketMQProperties rocketMQProperties;
+    
+    @Autowired
+    private MyKafkaProducer kafkaProducer;
 
     /**
      * 减库存
@@ -64,6 +68,9 @@ public class StorageService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
+        //kafka
+        kafkaProducer.send("test", storage.toString());
         
     }
 }
