@@ -1,14 +1,19 @@
 #docker 安装kafka
 1、下载镜像
+
 这里使用了wurstmeister/kafka和wurstmeister/zookeeper这两个版本的镜像
 
 
 docker pull wurstmeister/zookeeper
+
 docker pull wurstmeister/kafka
+
 在命令中运行docker images验证两个镜像已经安装完毕
 
 2.启动
+
 启动zookeeper容器
+
 docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
 
 启动kafka容器
@@ -18,6 +23,7 @@ docker run -d --name kafka --publish 9092:9092 --link zookeeper --env KAFKA_ZOOK
 192.168.59.101 改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
 
 3. 测试kafka
+
 进入kafka容器的命令行
 
  
