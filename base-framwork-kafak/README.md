@@ -44,6 +44,7 @@ docker exec -it  容器id /bin/bash,进入容器，编辑hosts指定ip
 
 springboot 配置：
 
+~~~
 #kafka
 #####指定kafka 代理地址，可以多个
 spring.kafka.bootstrap-servers=kafka001:9092
@@ -57,6 +58,7 @@ spring.kafka.consumer.group-id=myGroup
 spring.kafka.template.default-topic=topic-1
 spring.kafka.consumer.group-id=test-consumer-group
 
+~~~
 *****记得windows也要配hosts
 
 
