@@ -12,6 +12,7 @@ docker pull wurstmeister/kafka
 
 docker-compose.yml ：
 
+~~~
 version: '2'
 services:
   zookeeper:
@@ -30,7 +31,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
-
+~~~
 启动之后会提示无法连接kafka001:9092的错误，docker ps查看容器id
 
 docker exec -it  容器id /bin/bash,进入容器，编辑hosts指定ip
