@@ -18,8 +18,13 @@ demo中使用的相关版本号，具体请看代码。如果搭建个人demo不
 
 * base-common 基础配置及工具，含swagger配置
 * base-framework-mysql mysqlPlus配置
+* base-framework-mongodb mogo組件
+* base-framework-kafka 
+* base-framework-rocketMq
+* base-framework-redis
 * spc-account-server ,账务服务整合mybits
-* spc-order-serrver 订单服务，spc-storage-server库存服务，整合mybitsPlus
+* spc-order-serrver 订单服务，整合mybitsPlus
+* spc-storage-server库存服务，整合mybitsPlus，测试kafka、rocketmq、redis、mongo 可以使用此服务
 * spc-zuul-service zuul聚合全部 的api文档
 
 
