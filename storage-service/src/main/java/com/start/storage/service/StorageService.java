@@ -4,6 +4,8 @@ package com.start.storage.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.start.framework.rocketmq.producer.SyncProducer;
 import com.start.framwork.kafak.producer.MyKafkaProducer;
+import com.start.framwork.mongo.eneity.StorageChange;
+import com.start.framwork.mongo.service.impl.MongoService;
 import com.start.storage.config.RocketMQProperties;
 import com.start.storage.entity.Storage;
 import com.start.storage.repository.StorageDAO;
@@ -40,6 +42,9 @@ public class StorageService {
     
     @Autowired
     private MyKafkaProducer kafkaProducer;
+    
+    @Autowired
+    private MongoService mongoService;
 
     /**
      * 减库存
@@ -61,16 +66,26 @@ public class StorageService {
         storageDAO.updateById(storage);
         
         //异步通知第三方系统
-        try {
-			syncProducer.send(rocketMQProperties.topic, rocketMQProperties.tag, storage.toString());
-		} catch (UnsupportedEncodingException | InterruptedException | RemotingException | MQClientException
-				| MQBrokerException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * try { syncProducer.send(rocketMQProperties.topic, rocketMQProperties.tag,
+		 * storage.toString()); } catch (UnsupportedEncodingException |
+		 * InterruptedException | RemotingException | MQClientException |
+		 * MQBrokerException e) { // TODO Auto-generated catch block
+		 * e.printStackTrace(); }
+		 */
         
         //kafka
         kafkaProducer.send("test", storage.toString());
+        
+        StorageChange storageChange = new StorageChange();
+        storageChange.setId(storage.getId().toString());
+        storageChange.setProductNmae(commodityCode);
+        storageChange.setQuantity(count);
+        storageChange.setType("deduct");
+        
+		//mongo
+        mongoService.mongoSaveStorageChange(storageChange );
+        
         
     }
 }

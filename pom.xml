@@ -17,6 +17,7 @@
         <module>base-framework-redis</module>
         <module>base-framwork-rocketmq</module>
         <module>base-framwork-kafak</module>
+        <module>base-framwork-mongodb</module>
     </modules>
     
     <parent>
@@ -32,7 +33,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-		<mysql-connector-java.version>5.1.37</mysql-connector-java.version>
+		<mysql-connector-java.version>5.1.47</mysql-connector-java.version>
 		
 		<druid-spring-boot-starter.version>1.1.10</druid-spring-boot-starter.version>
 		<lombok.version>1.18.8</lombok.version>
