@@ -22,7 +22,10 @@ public abstract class MongoBasicsDAOImpl<T> implements MongoBasicsDAO<T>{
 	
 	private Class<T> obj;
 	
-    protected MongoBasicsDAOImpl() {
+    /**
+     * 获取T的实际类型
+     */
+	protected MongoBasicsDAOImpl() {
         Type type = getClass().getGenericSuperclass();
         Type trueType = ((ParameterizedType) type).getActualTypeArguments()[0];
         this.obj = (Class<T>) trueType;
