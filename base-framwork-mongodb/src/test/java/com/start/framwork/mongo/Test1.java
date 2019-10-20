@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.start.framwork.mongo.eneity.Order;
 import com.start.framwork.mongo.eneity.User;
 import com.start.framwork.mongo.service.impl.MongoService;
 
@@ -16,6 +17,18 @@ import com.start.framwork.mongo.service.impl.MongoService;
 public class Test1 {
 	@Autowired
 	private MongoService mongoService;
+	
+	
+	@Test
+	public void saveTest() {
+
+		Order order = new Order();
+		order.setId("1");
+		order.setName("test");
+		order.setProductNmae("product-001");
+		order.setQuantity(2);
+		mongoService.mongoSaveOrder(order);
+	}
 
 	
 	@Test

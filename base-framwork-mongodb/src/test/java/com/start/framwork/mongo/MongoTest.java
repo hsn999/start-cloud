@@ -17,7 +17,7 @@ public class MongoTest {
 	private MongoService mongoService;
 
 	@Test
-	public void saveStudentTest() {
+	public void saveTest() {
 		User user = new User();
 		user.setName("张三");
 		user.setAge(18);
