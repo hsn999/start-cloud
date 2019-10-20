@@ -216,13 +216,16 @@ getFromQueue----从队列取出
 
 ## 3. 测试
 
-1. 分布式事务成功，模拟正常下单、扣库存
+1. 访问 localhost:8899/swagger-ui.html 可查看聚合的相关接口
 
-   localhost:9091/order/placeOrder/commit   
+2. 分布式事务成功，模拟正常下单、扣库存
 
-2. 分布式事务失败，模拟下单成功、扣库存失败，最终同时回滚
+   localhost:9091/swagger-ui.html
+   commit为成功提交    、rollback为失败回滚 
 
-   localhost:9091/order/placeOrder/rollback 
+3. 测试kafka、rocketmq、redis、mongo 可以使用storege服务
+
+   http://127.0.0.1:9092/swagger-ui.html
 
 
 
