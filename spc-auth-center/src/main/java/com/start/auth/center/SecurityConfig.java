@@ -16,11 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.start.framwork.jwt.JwtAuthenticationConfig;
 import com.start.framwork.jwt.JwtUsernamePasswordAuthenticationFilter;
 
-/**
- * Config login authentication.
- *
- * @author shuaicj 2017/10/18
- */
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
