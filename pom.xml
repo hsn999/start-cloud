@@ -18,6 +18,9 @@
         <module>base-framwork-rocketmq</module>
         <module>base-framwork-kafak</module>
         <module>base-framwork-mongodb</module>
+        <module>spc-zuul-gateway</module>
+        <module>base-framwork-jwt</module>
+        <module>spc-auth-center</module>
     </modules>
     
     <parent>
