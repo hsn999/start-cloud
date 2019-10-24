@@ -37,5 +37,13 @@ public class StorageController {
         storageService.deduct(commodityCode, count);
         return true;
     }
+    
+    
+    @ApiOperation(value=" 调用示例")
+    @RequestMapping(path = "/getQuantity")
+    public String getQuantity(String commodityCode) {
+
+        return "100";
+    }
 
 }

@@ -16,4 +16,8 @@ public interface StorageFeignClient {
 
     @GetMapping("storage/deduct")
     Boolean deduct(@RequestParam("commodityCode") String commodityCode, @RequestParam("count") Integer count);
+    
+    @GetMapping("storage/getQuantity")
+    String getQuantity(@RequestParam("commodityCode") String commodityCode) ;
 }
+
