@@ -60,7 +60,7 @@ java -DKAFKA_BOOTSTRAP_SERVERS=kafka001:9092 -DSTORAGE_TYPE=elasticsearch -DES_H
 
 项目依赖：
 
-
+~~~
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <!-- <parent>
@@ -175,7 +175,7 @@ spring:
   kafka:
     bootstrap-servers: kafka001:9092
 
- 
+ ~~~
 
 详细代码请参考：https://github.com/hsn999/zipkin
        或者：https://github.com/hsn999/start-cloud
