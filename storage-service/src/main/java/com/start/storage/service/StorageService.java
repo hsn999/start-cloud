@@ -2,17 +2,17 @@ package com.start.storage.service;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.start.framework.rocketmq.producer.SyncProducer;
+//import com.start.framework.rocketmq.producer.SyncProducer;
 import com.start.framwork.kafak.producer.MyKafkaProducer;
-import com.start.framwork.mongo.eneity.StorageChange;
-import com.start.framwork.mongo.service.impl.MongoService;
+//import com.start.framwork.mongo.eneity.StorageChange;
+//import com.start.framwork.mongo.service.impl.MongoService;
 import com.start.storage.config.RocketMQProperties;
 import com.start.storage.entity.Storage;
 import com.start.storage.repository.StorageDAO;
 
-import org.apache.rocketmq.client.exception.MQBrokerException;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.remoting.exception.RemotingException;
+//import org.apache.rocketmq.client.exception.MQBrokerException;
+//import org.apache.rocketmq.client.exception.MQClientException;
+//import org.apache.rocketmq.remoting.exception.RemotingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,17 +34,17 @@ public class StorageService {
     @Resource
     private StorageDAO storageDAO;
     
-    @Autowired
-    SyncProducer syncProducer;
+    //@Autowired
+    //SyncProducer syncProducer;
     
-    @Autowired
-    RocketMQProperties rocketMQProperties;
+	/*
+	 * @Autowired RocketMQProperties rocketMQProperties;
+	 * 
+	 * @Autowired private MyKafkaProducer kafkaProducer;
+	 */
     
-    @Autowired
-    private MyKafkaProducer kafkaProducer;
-    
-    @Autowired
-    private MongoService mongoService;
+    //@Autowired
+    //private MongoService mongoService;
 
     /**
      * 减库存
@@ -75,16 +75,16 @@ public class StorageService {
 		 */
         
         //kafka
-        kafkaProducer.send("test", storage.toString());
+        //kafkaProducer.send("test", storage.toString());
         
-        StorageChange storageChange = new StorageChange();
-        storageChange.setId(storage.getId().toString());
-        storageChange.setProductNmae(commodityCode);
-        storageChange.setQuantity(count);
-        storageChange.setType("deduct");
+        //StorageChange storageChange = new StorageChange();
+        //storageChange.setId(storage.getId().toString());
+        //storageChange.setProductNmae(commodityCode);
+        //storageChange.setQuantity(count);
+        //storageChange.setType("deduct");
         
 		//mongo
-        mongoService.mongoSaveStorageChange(storageChange );
+        //mongoService.mongoSaveStorageChange(storageChange );
         
         
     }

@@ -35,7 +35,7 @@ public class AccountController {
      * @return
      */
     @ApiOperation(value=" 扣减账户余额demo示例")
-    @PostMapping("decrease")
+    @GetMapping("decrease")
     public String decrease(@RequestParam("userId") Long userId,@RequestParam("money") BigDecimal money){
         accountServiceImpl.decrease(userId,money);
         System.out.println("Account decrease success-------------");
