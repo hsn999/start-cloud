@@ -69,5 +69,10 @@ public class OrderService {
         accountFeignClient.decrease(userId, orderMoney);
 
     }
+    
+    public void getQuantity( String commodityCode) {
+    	
+    	storageFeignClient.getQuantity(commodityCode);
+    }
 
 }

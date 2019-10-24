@@ -67,5 +67,13 @@ public class OrderController {
         orderService.placeOrder(userId, commodityCode, count);
         return true;
     }
+    
+    @PostMapping("/getQuantity")
+    @ApiOperation(value="demo示例")
+    public Boolean getQuantity( String commodityCode) {
+        orderService.getQuantity(commodityCode);
+        return true;
+    }
+    
       
 }
