@@ -21,6 +21,7 @@
         <module>spc-zuul-gateway</module>
         <module>base-framwork-jwt</module>
         <module>spc-auth-center</module>
+        <module>spc-zipkin-server</module>
     </modules>
     
     <parent>
