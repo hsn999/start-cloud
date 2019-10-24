@@ -50,7 +50,7 @@ Running via Docker:
 
 docker run -d -p 9411:9411 openzipkin/zipkin-slim
 
-download jar： https://mvnrepository.com/artifact/io.zipkin.java/zipkin-server
+download jar： https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/
 
 java -DKAFKA_BOOTSTRAP_SERVERS=kafka001:9092 -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://localhost:9300 -jar zipkin.jar
 
