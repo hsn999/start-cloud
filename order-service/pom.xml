@@ -66,12 +66,7 @@
             <version>0.2.1.RELEASE</version>
         </dependency>
 
-        <!-- seata-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-alibaba-seata</artifactId>
-            <version>2.1.0.RELEASE</version>
-        </dependency>
+        <!-- seata-->        
         <dependency>
             <groupId>io.seata</groupId>
             <artifactId>seata-all</artifactId>
