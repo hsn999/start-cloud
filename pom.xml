@@ -22,6 +22,7 @@
 		<module>base-framwork-jwt</module>
 		<module>spc-auth-center</module>
 		<module>spc-zipkin-server</module>
+		<module>spc-client-demo</module>
 	</modules>
 
 	<parent>

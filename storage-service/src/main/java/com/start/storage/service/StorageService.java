@@ -34,17 +34,7 @@ public class StorageService {
     @Resource
     private StorageDAO storageDAO;
     
-    //@Autowired
-    //SyncProducer syncProducer;
-    
-	/*
-	 * @Autowired RocketMQProperties rocketMQProperties;
-	 * 
-	 * @Autowired private MyKafkaProducer kafkaProducer;
-	 */
-    
-    //@Autowired
-    //private MongoService mongoService;
+
 
     /**
      * 减库存
@@ -64,27 +54,7 @@ public class StorageService {
         storage.setCount(storage.getCount() - count);
 
         storageDAO.updateById(storage);
-        
-        //异步通知第三方系统
-		/*
-		 * try { syncProducer.send(rocketMQProperties.topic, rocketMQProperties.tag,
-		 * storage.toString()); } catch (UnsupportedEncodingException |
-		 * InterruptedException | RemotingException | MQClientException |
-		 * MQBrokerException e) { // TODO Auto-generated catch block
-		 * e.printStackTrace(); }
-		 */
-        
-        //kafka
-        //kafkaProducer.send("test", storage.toString());
-        
-        //StorageChange storageChange = new StorageChange();
-        //storageChange.setId(storage.getId().toString());
-        //storageChange.setProductNmae(commodityCode);
-        //storageChange.setQuantity(count);
-        //storageChange.setType("deduct");
-        
-		//mongo
-        //mongoService.mongoSaveStorageChange(storageChange );
+       
         
         
     }
