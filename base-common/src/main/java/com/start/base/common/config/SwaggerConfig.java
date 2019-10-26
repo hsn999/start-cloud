@@ -32,7 +32,8 @@ public class SwaggerConfig {
 
 	@Bean
 	public Docket createRestApi() {
-		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
+		System.out.println("------swaggerEnabled------"+swaggerEnabled);
+		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())				
 				// 是否开启
 				.enable(swaggerEnabled).select()
 				// 扫描的路径包

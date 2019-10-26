@@ -15,6 +15,9 @@ import com.start.framwork.kafak.producer.MyKafkaProducer;
 import com.start.framwork.mongo.eneity.StorageChange;
 import com.start.framwork.mongo.service.impl.MongoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.remoting.exception.RemotingException;
@@ -26,6 +29,7 @@ import java.util.Date;
 @EnableWebMvc
 @RestController
 @Slf4j
+@Api(value="/test1", tags="测试接口模块")
 public class TService {
 
 	@Autowired
@@ -40,6 +44,8 @@ public class TService {
 	@Autowired
 	private MongoService mongoService;
 
+	
+	@ApiOperation(value="xxxx", notes = "names")
 	@RequestMapping("/test")
 	public String printDate(@RequestParam(name = "username", required = false) String username) {
 		log.info("req: username={}", username);

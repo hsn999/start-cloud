@@ -25,7 +25,8 @@ demo中使用的相关版本号，具体请看代码。如果搭建个人demo不
 * base-framework-jwt
 * spc-account-server ,账务服务整合mybits
 * spc-order-serrver 订单服务，整合mybitsPlus
-* spc-storage-server库存服务，整合mybitsPlus，测试kafka、rocketmq、redis、mongo 可以使用此服务
+* spc-storage-server库存服务，整合mybitsPlus
+* spc-client-demo 测试kafka、rocketmq、redis、mongo 可以使用此服务
 * spc-zuul-service zuul聚合全部 的api文档
 * spc-auth-center 认证中心，结合spring security及jwt创建token
 * spc-zuul-gateway zuul对外网关
