@@ -276,13 +276,13 @@ getFromQueue----从队列取出
 
 1. 访问 localhost:8899/swagger-ui.html 可查看聚合的相关接口
 
-![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuul1.png)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuulx.png)
 
 2. 分布式事务成功，模拟正常下单、扣库存
 
    localhost:9091/swagger-ui.html
 
-
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuul1.png)
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/swagger.png)
    commit为成功提交    、rollback为失败回滚 
 
