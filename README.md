@@ -282,7 +282,7 @@ getFromQueue----从队列取出
 
    localhost:9091/swagger-ui.html
 
-![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuul2.png)
+
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/swagger.png)
    commit为成功提交    、rollback为失败回滚 
 
@@ -294,4 +294,4 @@ getFromQueue----从队列取出
     http://127.0.0.1:9411
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin2.jpg)
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin1.jpg)
-![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin3.ipg)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin3.jpg)
