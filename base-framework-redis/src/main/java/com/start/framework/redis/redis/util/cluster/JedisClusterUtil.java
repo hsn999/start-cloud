@@ -99,9 +99,14 @@ public class JedisClusterUtil<T> implements ICacheUtil{
 
 	}
 
-	/** delete a key **/
-	public  void del(String key) {
-		jedisCluster.del(key.getBytes());
+	/** delete a key 
+	 * @return **/
+	public  Boolean del(String key) {
+		Long r = jedisCluster.del(key.getBytes());
+		if(r.equals(Long.valueOf("1")) ){
+			return true;
+		}
+		return false;
 	}
 	
 	public static JedisClusterUtil getInstance() {

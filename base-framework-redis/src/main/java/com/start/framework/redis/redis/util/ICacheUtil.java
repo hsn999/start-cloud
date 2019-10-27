@@ -45,7 +45,7 @@ public interface ICacheUtil {
 
 	void hset(String key, String field, String value);
 
-	void del(String key);
+	Boolean del(String key);
 
 	/**
 	 * 尝试获取分布式锁	 *

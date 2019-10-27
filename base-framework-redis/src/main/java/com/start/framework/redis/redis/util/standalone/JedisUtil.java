@@ -91,8 +91,12 @@ public class JedisUtil<T> implements ICacheUtil{
 	}
 
 	/** delete a key **/
-	public void del(String key) {
-		jedisFactory.getJedis().del(key.getBytes());
+	public Boolean del(String key) {
+		Long r = jedisFactory.getJedis().del(key.getBytes());
+		if(r.equals(Long.valueOf("1")) ){
+			return true;
+		}
+		return false;
 	}
 	
 	public static JedisUtil getInstance() {
