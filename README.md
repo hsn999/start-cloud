@@ -292,6 +292,6 @@ getFromQueue----从队列取出
 
 4.  测试链路监控
     http://127.0.0.1:9411
-![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin2.png)
-![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin1.png)
-![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin3.png)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin2.jpg)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin1.jpg)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin3.ipg)
