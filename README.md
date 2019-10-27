@@ -63,7 +63,7 @@ service.vgroup_mapping.order-service-group=default
 
 
 
-#### 1.3 启动seata-server
+#### 1.2.3 启动seata-server
 
 **分两步，如下**
 
@@ -76,6 +76,22 @@ sh nacos-config.sh 192.168.21.89
 cd bin
 sh seata-server.sh -p 8091 -m file
 ~~~
+
+
+### 1.3 zipkin
+
+配置启动参考：https://github.com/hsn999/start-cloud/tree/master/spc-zipkin-server
+
+### 1.4 zookeeper 及 kafka
+
+参考： https://github.com/hsn999/start-cloud/blob/master/base-framwork-kafak/README.md
+
+### 1.5 ReocketMq
+
+参考： https://github.com/hsn999/start-cloud/blob/master/base-framwork-rocketmq/README.md
+
+### 1.6 Mongo & Redis 略。。。。
+
 
 ----------
 
@@ -194,8 +210,44 @@ INSERT INTO seat_account.account (`id`, `user_id`, `total`, `used`, `residue`) V
 1. 每个应用的resource里需要配置一个registry.conf ，demo中与seata-server里的配置相同
 2. application.propeties 的各个配置项，注意spring.cloud.alibaba.seata.tx-service-group 是服务组名称，与nacos-config.txt 配置的service.vgroup_mapping.${your-service-gruop}具有对应关系
 
-## 3 其他配置
-### 3.1 redis組件配置
+
+## 3. 认证中心，结合spring security及jwt创建token
+
+JSON Web Token（JWT）是目前最流行的跨域身份验证解决方案，在微服务环境下，我们可以借助JWT实现服务器的身份认证
+
+基本过程如下图：
+
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/jwt.png)
+
+ 
+
+JWT的原则是在服务器身份验证之后，将生成一个JSON对象并将其发送回用户，如下所示。
+
+{
+
+"UserName": "xxx",
+
+"Role": "Admin，User",
+
+"Expire": "2019-06-01 10:13:26"
+
+}
+
+之后，当用户与服务器通信时，客户在请求中发回JSON对象。服务器仅依赖于这个JSON对象来标识用户。为了防止用户篡改数据，服务器将在生成对象时添加签名（有关详细信息，请参阅下文）。
+
+服务器不保存任何会话数据，即服务器变为无状态，使其更容易扩展。
+
+ 
+
+项目分成几个模块
+
+        <module>spc-zuul-gateway</module>
+        <module>base-framwork-jwt</module>
+        <module>spc-auth-center</module>
+
+
+## 4 其他配置
+### 4.1 redis組件配置
 redis安装配置可参考项目doc目录文档
 
 增加配置文件 redisconf.properties
@@ -218,22 +270,28 @@ getFromQueue----从队列取出
 
 ----------
 
-## 4. 测试
+## 5. 测试
 
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/nacos.png)
 
 1. 访问 localhost:8899/swagger-ui.html 可查看聚合的相关接口
 
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuul1.png)
+
 2. 分布式事务成功，模拟正常下单、扣库存
 
    localhost:9091/swagger-ui.html
+
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuul2.png)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/swagger.png)
    commit为成功提交    、rollback为失败回滚 
 
 3. 测试kafka、rocketmq、redis、mongo 可以使用storege服务
 
    http://127.0.0.1:9092/swagger-ui.html
 
-
-
-
-
+4.  测试链路监控
+    http://127.0.0.1:9411
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin2.png)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin1.png)
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin3.png)
