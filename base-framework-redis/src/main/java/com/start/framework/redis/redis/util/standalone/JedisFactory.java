@@ -44,23 +44,13 @@ public class JedisFactory {
 		// 在空闲时检查有效性, 默认false
 		config.setTestWhileIdle(true);
 		
-		//config.
-		
-		//RedisProperties redisProperties = new RedisProperties();
-
-		//jedisPool = new JedisPool(config, redisProperties.getHost(), redisProperties.getPort());
-		
 		jedisPool = new JedisPool(config, RedisConfig.getHostName(), RedisConfig.getPort());
-		
-		//PooledObjectFactory<Jedis> factory = null;
-		//GenericObjectPoolConfig poolConfig = null;
-		//jedisPool.initPool(poolConfig, factory);
 	}
 
 
 	// 释放连接
 	public static void returnResource(Jedis jedis) {
-		jedisPool.returnResource(jedis);
+		jedisPool.close();
 	}
 
 	

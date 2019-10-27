@@ -272,13 +272,15 @@ getFromQueue----从队列取出
 
 ## 5. 测试
 
+### 打包： mvn clean package -Dmaven.test.skip=true
+
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/nacos.png)
 
-1. 访问 localhost:8899/swagger-ui.html 可查看聚合的相关接口
+### 1. 访问 localhost:8899/swagger-ui.html 可查看聚合的相关接口
 
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zuulx.png)
 
-2. 分布式事务成功，模拟正常下单、扣库存
+### 2. 分布式事务成功，模拟正常下单、扣库存
 
    localhost:9091/swagger-ui.html
 
@@ -286,11 +288,11 @@ getFromQueue----从队列取出
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/swagger.png)
    commit为成功提交    、rollback为失败回滚 
 
-3. 测试kafka、rocketmq、redis、mongo 可以使用storege服务
+### 3. 测试kafka、rocketmq、redis、mongo 可以使用storege服务
 
    http://127.0.0.1:9092/swagger-ui.html
 
-4.  测试链路监控
+### 4.  测试链路监控
     http://127.0.0.1:9411
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin2.jpg)
 ![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/zipkin1.jpg)

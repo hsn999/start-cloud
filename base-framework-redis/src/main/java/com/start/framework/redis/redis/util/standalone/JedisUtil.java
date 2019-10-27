@@ -3,8 +3,6 @@ package com.start.framework.redis.redis.util.standalone;
 import java.util.Map;
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
-
 import com.start.framework.redis.redis.util.ICacheUtil;
 
 import redis.clients.jedis.Jedis;
@@ -13,7 +11,8 @@ import redis.clients.jedis.Jedis;
 public class JedisUtil<T> implements ICacheUtil{
 	// jedis
 	private static JedisFactory jedisFactory = JedisFactory.getInstance();
-	private static JedisUtil jedisUtil = new JedisUtil();
+	@SuppressWarnings("rawtypes")
+	private static JedisUtil<?> jedisUtil = new JedisUtil();
 
 	/** set Object */
 	public static void set(String key, Object object) {
@@ -99,6 +98,7 @@ public class JedisUtil<T> implements ICacheUtil{
 		return false;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public static JedisUtil getInstance() {
 		if (jedisUtil == null) {
 			jedisUtil = new JedisUtil();
@@ -112,7 +112,7 @@ public class JedisUtil<T> implements ICacheUtil{
 	}
 	//pool
 	public static void returnResource(Jedis jedis) {
-		jedisFactory.returnResource(jedis);;
+		JedisFactory.returnResource(jedis);;
 	}
 	
 	@Override
@@ -136,7 +136,7 @@ public class JedisUtil<T> implements ICacheUtil{
 	
 
 	@Override
-	public Set getSetByKey(String key) throws Exception {
+	public Set<String> getSetByKey(String key) throws Exception {
 		// TODO Auto-generated method stub
 		Jedis jedis = jedisFactory.getJedis();
 		Set<String> value = jedis.smembers(key);
@@ -153,8 +153,9 @@ public class JedisUtil<T> implements ICacheUtil{
 		returnResource(jedis);
 	}
 	
+
 	@Override
-	public Map getMapByKey(String key) throws Exception {
+	public Map<String,String> getMapByKey(String key) throws Exception {
 		// TODO Auto-generated method stub
 		Jedis jedis = jedisFactory.getJedis();
 		Map<String,String> map = jedis.hgetAll(key);

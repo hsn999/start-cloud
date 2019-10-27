@@ -3,22 +3,15 @@ package com.start.framework.redis.redis.util.cluster;
 import java.util.Map;
 import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Service;
-
 import com.start.framework.redis.redis.util.ICacheUtil;
 import com.start.framework.redis.redis.util.standalone.SerializeUtil;
 
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
 
 public class JedisClusterUtil<T> implements ICacheUtil{
 
-    private static final Logger LOGGER    = LoggerFactory.getLogger(JedisClusterUtil.class);    
+    //private static final Logger LOGGER    = LoggerFactory.getLogger(JedisClusterUtil.class);    
   
     private  JedisCluster jedisCluster;
     
@@ -27,6 +20,7 @@ public class JedisClusterUtil<T> implements ICacheUtil{
     static RedisOperator redisOperator= new RedisOperator();
 
      
+	@SuppressWarnings("rawtypes")
 	private static JedisClusterUtil jedisUtil = new JedisClusterUtil();
 	
 	public JedisClusterUtil(){
@@ -109,7 +103,8 @@ public class JedisClusterUtil<T> implements ICacheUtil{
 		return false;
 	}
 	
-	public static JedisClusterUtil getInstance() {
+	@SuppressWarnings("rawtypes")
+	public static JedisClusterUtil<?> getInstance() {
 		if (jedisUtil == null) {
 			jedisUtil = new JedisClusterUtil();
 		}
@@ -132,7 +127,7 @@ public class JedisClusterUtil<T> implements ICacheUtil{
 	
 
 	@Override
-	public Set getSetByKey(String key) throws Exception {
+	public Set<String> getSetByKey(String key) throws Exception {
 		Set<String> value = jedisCluster.smembers(key);
 		return value;
 	}
@@ -144,7 +139,7 @@ public class JedisClusterUtil<T> implements ICacheUtil{
 	}
 	
 	@Override
-	public Map getMapByKey(String key) throws Exception {
+	public Map<String, String> getMapByKey(String key) throws Exception {
 		Map<String,String> map = jedisCluster.hgetAll(key);
 		return map;
 	}
