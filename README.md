@@ -220,6 +220,8 @@ getFromQueue----从队列取出
 
 ## 4. 测试
 
+![Image text](https://github.com/hsn999/start-cloud/blob/master/src/doc/nacos.png)
+
 1. 访问 localhost:8899/swagger-ui.html 可查看聚合的相关接口
 
 2. 分布式事务成功，模拟正常下单、扣库存
