@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class ValidatorImpl implements InitializingBean {
+public class CommonValidator implements InitializingBean {
 
    private Validator validator;
 
