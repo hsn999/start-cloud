@@ -23,6 +23,7 @@
 		<module>spc-auth-center</module>
 		<module>spc-zipkin-server</module>
 		<module>spc-client-demo</module>
+		<module>base-framework-mail</module>
 	</modules>
 
 	<parent>
