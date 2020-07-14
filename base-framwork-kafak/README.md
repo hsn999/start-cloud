@@ -71,6 +71,10 @@ docker run -d --name zookeeper -p 2181:2181 -t wurstmeister/zookeeper
 docker run -d --name kafka --publish 9092:9092 --link zookeeper --env KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 --env KAFKA_ADVERTISED_HOST_NAME=kafka001 --env KAFKA_ADVERTISED_PORT=9092 --volume /etc/localtime:/etc/localtime wurstmeister/kafka:latest
 
 
-192.168.59.101 改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
+192.168.100.22 改为宿主机器的IP地址，如果不这么设置，可能会导致在别的机器上访问不到kafka。
+
+ 关了防火墙！  systemctl stop firewalld
+
+
 
 
